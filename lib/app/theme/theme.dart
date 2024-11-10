@@ -10,7 +10,6 @@ abstract class AppTheme {
       // https://github.com/flutter/flutter/issues/127064
       useMaterial3: false,
       brightness: Brightness.light,
-      colorScheme: colorScheme,
       textTheme: textTheme,
       iconTheme: iconTheme,
       progressIndicatorTheme: progressIndicatorTheme,
@@ -36,11 +35,11 @@ abstract class AppTheme {
         side: const BorderSide(color: AppColors.blue, width: 2),
       ),
       switchTheme: SwitchThemeData(
-        trackColor: WidgetStateProperty.all(AppColors.blueLight),
+        trackColor: WidgetStateProperty.all(AppColors.detailsColor),
         splashRadius: 20,
         thumbColor: WidgetStateProperty.resolveWith((state) {
           if (state.contains(WidgetState.selected)) return AppColors.blue;
-          return AppColors.blueMedium;
+          return AppColors.furnitureColor;
         }),
       ),
     );
@@ -98,9 +97,9 @@ abstract class AppTheme {
         ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
             if (states.contains(WidgetState.disabled)) {
-              return AppColors.greyMedium;
+              return AppColors.furnitureColor;
             }
-            return AppColors.blue;
+            return AppColors.detailsColor;
           }),
           foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
         ),
@@ -110,13 +109,13 @@ abstract class AppTheme {
 
   static AppBarTheme get appBarTheme {
     return const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor:AppColors.decorationColor,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
       ),
-      elevation: 0,
+      elevation: 10,
       iconTheme: IconThemeData(
-        color: AppColors.blue,
+        color: AppColors.white,
         size: 24,
       ),
     );
@@ -133,13 +132,13 @@ abstract class AppTheme {
     );
   }
 
-  static ColorScheme get colorScheme {
-    return ColorScheme.fromSwatch().copyWith(
-      primary: AppColors.blue,
-      secondary: AppColors.orange,
-      tertiary: AppColors.greyLight,
-    );
-  }
+  // static ColorScheme get colorScheme {
+  //   return ColorScheme.fromSwatch().copyWith(
+  //     primary: AppColors.blue,
+  //     secondary: AppColors.orange,
+  //     tertiary: AppColors.greyLight,
+  //   );
+  // }
 
   static IconThemeData get iconTheme {
     return const IconThemeData(
