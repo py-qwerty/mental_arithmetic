@@ -1,0 +1,1 @@
+fvm flutter build apk --target=lib/main_production.dart --flavor production

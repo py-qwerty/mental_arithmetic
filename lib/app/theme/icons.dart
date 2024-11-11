@@ -14,5 +14,35 @@ class AppIcons {
       semanticsLabel: 'Arithmetic Icon',
       colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn),
   );
+  static SvgPicture multiply =  SvgPicture.asset(
+      'assets/icons/multiply.svg',
+      semanticsLabel: 'Arithmetic Icon',
+      colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn),
+      width: 40,
+  );
+  static SvgPicture division =  SvgPicture.asset(
+      'assets/icons/divide.svg',
+      semanticsLabel: 'Arithmetic Icon',
+      colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn),
+    width: 50,
+  );
+  static SvgPicture subtract =  SvgPicture.asset(
+      'assets/icons/subtract.svg',
+      semanticsLabel: 'Arithmetic Icon',
+      colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn),
+    width: 40,
+  );
+  static SvgPicture percent =  SvgPicture.asset(
+      'assets/icons/percent.svg',
+      semanticsLabel: 'Arithmetic Icon',
+      colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn),
+    width: 30,
+  );
+  static SvgPicture additional =  SvgPicture.asset(
+      'assets/icons/addition.svg',
+      semanticsLabel: 'Arithmetic Icon',
+      colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn,),
+      width: 40,
+  );
 // Add more icons as needed
 }

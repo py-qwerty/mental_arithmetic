@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
 
@@ -10,7 +11,7 @@ abstract class AppTheme {
       // https://github.com/flutter/flutter/issues/127064
       useMaterial3: false,
       brightness: Brightness.light,
-      textTheme: textTheme,
+      textTheme: GoogleFonts.indieFlowerTextTheme(),
       iconTheme: iconTheme,
       progressIndicatorTheme: progressIndicatorTheme,
       scaffoldBackgroundColor: Colors.white,
@@ -108,27 +109,27 @@ abstract class AppTheme {
   }
 
   static AppBarTheme get appBarTheme {
-    return const AppBarTheme(
+    return  AppBarTheme(
       backgroundColor:AppColors.decorationColor,
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
       ),
       elevation: 10,
-      iconTheme: IconThemeData(
+      titleTextStyle: GoogleFonts.indieFlower(
         color: AppColors.white,
+        fontSize: 20,
+        letterSpacing: 1.3,
+        fontWeight: FontWeight.bold,
+      ),
+      iconTheme: const IconThemeData(
+        color: AppColors.backgroundColor,
         size: 24,
       ),
     );
   }
 
   static TextTheme get textTheme {
-    return const TextTheme(
-      bodyMedium: TextStyle(
-        fontSize: 12,
-      ),
-    ).apply(
-      bodyColor: AppColors.blue,
-      fontFamily: 'PlusJakartaSans',
+    return GoogleFonts.robotoMonoTextTheme(
     );
   }
 

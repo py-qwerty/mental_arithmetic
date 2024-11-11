@@ -18,7 +18,7 @@ Future<void> bootstrap(
   unawaited(
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
+
     ]),
   );
 

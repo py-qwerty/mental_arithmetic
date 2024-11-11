@@ -1,4 +1,5 @@
-package com.example.mental_arithmetic
+package com.mental_arithmetic.app
+
 
 import io.flutter.embedding.android.FlutterActivity
 

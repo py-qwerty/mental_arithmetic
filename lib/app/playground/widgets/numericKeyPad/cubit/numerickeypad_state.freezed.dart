@@ -15,36 +15,36 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$NumericKeyPadState {
+mixin _$NumerickeypadState {
   String get value => throw _privateConstructorUsedError;
 
-  /// Create a copy of NumericKeyPadState
+  /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NumericKeyPadStateCopyWith<NumericKeyPadState> get copyWith =>
+  $NumerickeypadStateCopyWith<NumerickeypadState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NumericKeyPadStateCopyWith<$Res> {
-  factory $NumericKeyPadStateCopyWith(
-          NumericKeyPadState value, $Res Function(NumericKeyPadState) then) =
-      _$NumericKeyPadStateCopyWithImpl<$Res, NumericKeyPadState>;
+abstract class $NumerickeypadStateCopyWith<$Res> {
+  factory $NumerickeypadStateCopyWith(
+          NumerickeypadState value, $Res Function(NumerickeypadState) then) =
+      _$NumerickeypadStateCopyWithImpl<$Res, NumerickeypadState>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$NumericKeyPadStateCopyWithImpl<$Res, $Val extends NumericKeyPadState>
-    implements $NumericKeyPadStateCopyWith<$Res> {
-  _$NumericKeyPadStateCopyWithImpl(this._value, this._then);
+class _$NumerickeypadStateCopyWithImpl<$Res, $Val extends NumerickeypadState>
+    implements $NumerickeypadStateCopyWith<$Res> {
+  _$NumerickeypadStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of NumericKeyPadState
+  /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -61,32 +61,32 @@ class _$NumericKeyPadStateCopyWithImpl<$Res, $Val extends NumericKeyPadState>
 }
 
 /// @nodoc
-abstract class _$$NumericKeyPadStateImplCopyWith<$Res>
-    implements $NumericKeyPadStateCopyWith<$Res> {
-  factory _$$NumericKeyPadStateImplCopyWith(_$NumericKeyPadStateImpl value,
-          $Res Function(_$NumericKeyPadStateImpl) then) =
-      __$$NumericKeyPadStateImplCopyWithImpl<$Res>;
+abstract class _$$NumerickeypadStateImplCopyWith<$Res>
+    implements $NumerickeypadStateCopyWith<$Res> {
+  factory _$$NumerickeypadStateImplCopyWith(_$NumerickeypadStateImpl value,
+          $Res Function(_$NumerickeypadStateImpl) then) =
+      __$$NumerickeypadStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$NumericKeyPadStateImplCopyWithImpl<$Res>
-    extends _$NumericKeyPadStateCopyWithImpl<$Res, _$NumericKeyPadStateImpl>
-    implements _$$NumericKeyPadStateImplCopyWith<$Res> {
-  __$$NumericKeyPadStateImplCopyWithImpl(_$NumericKeyPadStateImpl _value,
-      $Res Function(_$NumericKeyPadStateImpl) _then)
+class __$$NumerickeypadStateImplCopyWithImpl<$Res>
+    extends _$NumerickeypadStateCopyWithImpl<$Res, _$NumerickeypadStateImpl>
+    implements _$$NumerickeypadStateImplCopyWith<$Res> {
+  __$$NumerickeypadStateImplCopyWithImpl(_$NumerickeypadStateImpl _value,
+      $Res Function(_$NumerickeypadStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of NumericKeyPadState
+  /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$NumericKeyPadStateImpl(
+    return _then(_$NumerickeypadStateImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -97,8 +97,8 @@ class __$$NumericKeyPadStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NumericKeyPadStateImpl extends _NumericKeyPadState {
-  const _$NumericKeyPadStateImpl({this.value = ''}) : super._();
+class _$NumerickeypadStateImpl extends _NumerickeypadState {
+  const _$NumerickeypadStateImpl({this.value = ''}) : super._();
 
   @override
   @JsonKey()
@@ -106,42 +106,42 @@ class _$NumericKeyPadStateImpl extends _NumericKeyPadState {
 
   @override
   String toString() {
-    return 'NumericKeyPadState(value: $value)';
+    return 'NumerickeypadState(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NumericKeyPadStateImpl &&
+            other is _$NumerickeypadStateImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  /// Create a copy of NumericKeyPadState
+  /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$NumericKeyPadStateImplCopyWith<_$NumericKeyPadStateImpl> get copyWith =>
-      __$$NumericKeyPadStateImplCopyWithImpl<_$NumericKeyPadStateImpl>(
+  _$$NumerickeypadStateImplCopyWith<_$NumerickeypadStateImpl> get copyWith =>
+      __$$NumerickeypadStateImplCopyWithImpl<_$NumerickeypadStateImpl>(
           this, _$identity);
 }
 
-abstract class _NumericKeyPadState extends NumericKeyPadState {
-  const factory _NumericKeyPadState({final String value}) =
-      _$NumericKeyPadStateImpl;
-  const _NumericKeyPadState._() : super._();
+abstract class _NumerickeypadState extends NumerickeypadState {
+  const factory _NumerickeypadState({final String value}) =
+      _$NumerickeypadStateImpl;
+  const _NumerickeypadState._() : super._();
 
   @override
   String get value;
 
-  /// Create a copy of NumericKeyPadState
+  /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NumericKeyPadStateImplCopyWith<_$NumericKeyPadStateImpl> get copyWith =>
+  _$$NumerickeypadStateImplCopyWith<_$NumerickeypadStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
