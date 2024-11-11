@@ -40,6 +40,7 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
     int currentScore = state.score;
     final currentPage = state.pageController.page!.round();
     final currentDisplay = state.operations[currentPage];
+    final numerickeypadCubit = state.numerickeypadCubit;
     currentDisplay.checkResult(value);
 
     if (currentDisplay.state.mode != answerMode.none){
@@ -53,11 +54,13 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
         score: currentScore,
       ));
 
+      numerickeypadCubit.enable(false);
       await Future.delayed(const Duration(milliseconds: 500));
       state.pageController.nextPage(
           duration: const Duration(milliseconds: 400),
           curve: Curves.easeInOut,
       );
+      numerickeypadCubit.enable(true);
       state.numerickeypadCubit.onClear();
 
       if(currentPage == state.maxOperations-1){

@@ -19,4 +19,8 @@ class NumerickeypadCubit extends Cubit<NumerickeypadState> {
   void onClear() {
     emit(const NumerickeypadState());
   }
+
+  void enable(bool bool) {
+    emit(state.copyWith(enable: bool));
+  }
 }

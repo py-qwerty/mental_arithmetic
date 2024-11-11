@@ -3,7 +3,7 @@ enum BuildVariant { development, staging, production }
 
 class EnvironmentConfig {
   static const String flavor = String.fromEnvironment('FLAVOR', defaultValue: 'production');
-  static const String appName = String.fromEnvironment('APP_NAME', defaultValue: 'OPN App');
+  static const String appName = String.fromEnvironment('APP_NAME', defaultValue: 'Mental Arithmetic');
 }
 
 class Environment {

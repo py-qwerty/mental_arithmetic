@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NumerickeypadState {
   String get value => throw _privateConstructorUsedError;
+  bool get enable => throw _privateConstructorUsedError;
 
   /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +32,7 @@ abstract class $NumerickeypadStateCopyWith<$Res> {
           NumerickeypadState value, $Res Function(NumerickeypadState) then) =
       _$NumerickeypadStateCopyWithImpl<$Res, NumerickeypadState>;
   @useResult
-  $Res call({String value});
+  $Res call({String value, bool enable});
 }
 
 /// @nodoc
@@ -50,12 +51,17 @@ class _$NumerickeypadStateCopyWithImpl<$Res, $Val extends NumerickeypadState>
   @override
   $Res call({
     Object? value = null,
+    Object? enable = null,
   }) {
     return _then(_value.copyWith(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      enable: null == enable
+          ? _value.enable
+          : enable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -68,7 +74,7 @@ abstract class _$$NumerickeypadStateImplCopyWith<$Res>
       __$$NumerickeypadStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value});
+  $Res call({String value, bool enable});
 }
 
 /// @nodoc
@@ -85,12 +91,17 @@ class __$$NumerickeypadStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = null,
+    Object? enable = null,
   }) {
     return _then(_$NumerickeypadStateImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      enable: null == enable
+          ? _value.enable
+          : enable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -98,15 +109,19 @@ class __$$NumerickeypadStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NumerickeypadStateImpl extends _NumerickeypadState {
-  const _$NumerickeypadStateImpl({this.value = ''}) : super._();
+  const _$NumerickeypadStateImpl({this.value = '', this.enable = true})
+      : super._();
 
   @override
   @JsonKey()
   final String value;
+  @override
+  @JsonKey()
+  final bool enable;
 
   @override
   String toString() {
-    return 'NumerickeypadState(value: $value)';
+    return 'NumerickeypadState(value: $value, enable: $enable)';
   }
 
   @override
@@ -114,11 +129,12 @@ class _$NumerickeypadStateImpl extends _NumerickeypadState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NumerickeypadStateImpl &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.enable, enable) || other.enable == enable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, value, enable);
 
   /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.
@@ -131,12 +147,14 @@ class _$NumerickeypadStateImpl extends _NumerickeypadState {
 }
 
 abstract class _NumerickeypadState extends NumerickeypadState {
-  const factory _NumerickeypadState({final String value}) =
+  const factory _NumerickeypadState({final String value, final bool enable}) =
       _$NumerickeypadStateImpl;
   const _NumerickeypadState._() : super._();
 
   @override
   String get value;
+  @override
+  bool get enable;
 
   /// Create a copy of NumerickeypadState
   /// with the given fields replaced by the non-null parameter values.

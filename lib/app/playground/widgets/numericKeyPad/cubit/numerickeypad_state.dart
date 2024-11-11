@@ -7,8 +7,8 @@ part 'numerickeypad_state.freezed.dart';
 class NumerickeypadState with _$NumerickeypadState {
   const factory NumerickeypadState({
     @Default('') String value,
+    @Default(true) bool enable,
   }) = _NumerickeypadState;
-
   const NumerickeypadState._();
 
 }

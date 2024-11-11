@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vibration/vibration.dart';
 import '../../../cubit/play_ground_state.dart';
 import 'display_state.dart';
 
@@ -98,47 +96,43 @@ class DisplayCubit extends Cubit<DisplayState> {
       ));
     } else if (typeOperation == OperationMode.mixed) {
       final operators = ['+', '-', '*', '/'];
-      String operation = '';
+      String operation = numbers[0].toString();
       int result = numbers[0];
 
       for (int i = 1; i < numbers.length; i++) {
         final operator = operators[random.nextInt(4)];
-        final num = numbers[i];
+        var num = numbers[i];
 
-        // Probabilidad de agregar paréntesis alrededor de esta operación
+        // Para división, ajustamos num para que sea un divisor de result
+        if (operator == '/') {
+          num = getRandomDivisor(result);
+        }
+
+        // Guardamos el valor anterior de result antes de actualizarlo
+        int oldResult = result;
+
+        // Construimos la expresión de la operación
+        // Decidimos aleatoriamente si agregamos paréntesis
         if (random.nextBool() && i < numbers.length - 1) {
-          final innerOperation = '($result $operator $num)';
-          switch (operator) {
-            case '+':
-              result += num;
-              break;
-            case '-':
-              result -= num;
-              break;
-            case '*':
-              result *= num;
-              break;
-            case '/':
-              result ~/= num != 0 ? num : 1; // evita la división por cero
-              break;
-          }
-          operation = operation.isEmpty ? innerOperation : '($operation $operator $innerOperation)';
+          operation = '($operation $operator $num)';
         } else {
-          operation = operation.isEmpty ? '$result $operator $num' : '$operation $operator $num';
-          switch (operator) {
-            case '+':
-              result += num;
-              break;
-            case '-':
-              result -= num;
-              break;
-            case '*':
-              result *= num;
-              break;
-            case '/':
-              result ~/= num != 0 ? num : 1;
-              break;
-          }
+          operation += ' $operator $num';
+        }
+
+        // Actualizamos result después de construir la expresión
+        switch (operator) {
+          case '+':
+            result = oldResult + num;
+            break;
+          case '-':
+            result = oldResult - num;
+            break;
+          case '*':
+            result = oldResult * num;
+            break;
+          case '/':
+            result = oldResult ~/ num;
+            break;
         }
       }
 
@@ -148,6 +142,31 @@ class DisplayCubit extends Cubit<DisplayState> {
         label: 'Realiza esta operación',
       ));
     }
+
+  }
+
+  int getRandomDivisor(int number) {
+    if (number == 0) return 1; // Evita división por cero
+
+    List<int> divisors = [];
+
+    // Encuentra todos los divisores del número actual
+    for (int i = 1; i <= number.abs(); i++) {
+      if (number % i == 0) {
+        divisors.add(i);
+      }
+    }
+
+    // Selecciona un divisor al azar
+    final randomIndex = Random().nextInt(divisors.length);
+    int divisor = divisors[randomIndex];
+
+    // Opcional: Decide aleatoriamente si el divisor es negativo
+    if (Random().nextBool()) {
+      divisor = -divisor;
+    }
+
+    return divisor;
   }
 
   Future<void> checkResult(String value) async{
