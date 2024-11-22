@@ -11,15 +11,15 @@ import '../widgets/display/cubit/display_state.dart';
 import 'play_ground_state.dart';
 
 class PlayGroundCubit extends Cubit<PlayGroundState> {
-  late final Ticker _ticker;
+  //late final Ticker _ticker;
   PlayGroundCubit() : super(PlayGroundState(
       numericKeypadCubit: NumerickeypadCubit(),
       pageController: PageController(),
       tts: FlutterTts(),
       startTime: DateTime.now(),
   )){
-    _ticker = Ticker(onTick);
-    _ticker.stop();
+    // _ticker = Ticker(onTick);
+    // _ticker.stop();
     initTts();
   }
 
@@ -40,7 +40,6 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
       operations.add(newDisplay);
       timerStop();
       timerStart();
-      print('hola');
     }
     emit(state.copyWith(operations: operations));
     speakTheOperation();
@@ -51,7 +50,7 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
     final currentPage = state.currentPage;
     final currentDisplay = state.operations[currentPage];
     if (kDebugMode) {
-      print('currentDisplay: ${currentPage}');
+      print('currentDisplay: $currentPage');
     }
     // Chequear el resultado y actualizar el puntaje
     currentDisplay.checkResult(value);
@@ -72,14 +71,20 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
   // Dispose
   @override
   Future<void> close() async {
-    if (_ticker.isTicking) {
-      _ticker.stop();
+    // if (_ticker.isTicking) {
+    //   _ticker.stop();
+    // }
+    // _ticker.dispose();
+    debugPrint("PlayGroundCubit: close called");
+    // Detén cualquier reproducción activa del TTS
+    if (state.tts != null) {
+      await state.tts.stop();
     }
-    _ticker.dispose();
-    await state.tts.stop(); // Asegúrate de detener cualquier texto hablado
+
     state.pageController.dispose(); // Libera el controlador de páginas
     return super.close();
   }
+
 
 
   // Resuelve la operación actual
@@ -210,28 +215,31 @@ class PlayGroundCubit extends Cubit<PlayGroundState> {
 
   //------------------Timer-------------------//
   void onTick(Duration elapsed) {
-    if (state.isRunning) {
-      final now = DateTime.now();
-      final elapsed = now.difference(state.startTime);
-      emit(state.copyWith(elapse: elapsed));
+    if (isClosed || !state.isRunning) {
+      return; // Detén cualquier ejecución si el Cubit ya está cerrado o si no está corriendo.
     }
+    final now = DateTime.now();
+    final elapsedTime = now.difference(state.startTime);
+    emit(state.copyWith(elapse: elapsedTime));
   }
 
+
+
   void timerStart() {
-    emit(state.copyWith(isRunning: true));
-    _ticker.start();
+    // emit(state.copyWith(isRunning: true));
+    // _ticker.start();
   }
 
   void timerStop() {
-    emit(state.copyWith(isRunning: false));
-    _ticker.stop();
+    // emit(state.copyWith(isRunning: false));
+    // _ticker.stop();
   }
 
   void timerReset() {
-    _ticker.stop();
-    emit(state.copyWith(elapse: Duration.zero,
-        isRunning: false,
-        startTime: DateTime.now()));
+    // _ticker.stop();
+    // emit(state.copyWith(elapse: Duration.zero,
+    //     isRunning: false,
+    //     startTime: DateTime.now()));
   }
 
   //----------------- TTS -------------------//

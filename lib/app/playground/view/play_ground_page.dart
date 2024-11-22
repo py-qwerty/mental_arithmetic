@@ -11,13 +11,33 @@ import '../../theme/colors.dart';
 import '../../theme/widgets/font_sizes_v2.dart';
 import '../cubit/play_ground_cubit.dart';
 import '../widgets/display/display.dart';
+import '../widgets/numericKeyPad/cubit/numerickeypad_cubit.dart';
 import '../widgets/numericKeyPad/numeric_keypad.dart';
 
-class PlayGroundPage  extends StatelessWidget {
+class PlayGroundPage  extends StatefulWidget {
   const PlayGroundPage ({super.key});
 
   static const String route = '/playground';
 
+
+  static Widget create({required PlayGroundCubit cubit}) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PlayGroundCubit>(create: (_) => cubit),
+        BlocProvider<NumerickeypadCubit>(
+          create: (_) => cubit.state.numericKeypadCubit,
+        ),
+      ],
+      child: const PlayGroundPage(),
+    );
+  }
+
+
+  @override
+  State<PlayGroundPage> createState() => _PlayGroundPageState();
+}
+
+class _PlayGroundPageState extends State<PlayGroundPage> {
   final mainMenuStyle = const TextStyle(
     fontSize: 24,
     color: AppColors.backgroundColor,
@@ -25,20 +45,16 @@ class PlayGroundPage  extends StatelessWidget {
     fontWeight: FontWeight.bold,
   );
 
-  static Widget create({required PlayGroundCubit cubit}) {
-    return MultiBlocProvider(
-      providers:[
-        BlocProvider.value(value: cubit),
-        BlocProvider.value(value: cubit.state.numericKeypadCubit),
-      ], child: const PlayGroundPage(),
-    );
+
+  @override initState() {
+    super.initState();
+    final playGroundCubit = context.read<PlayGroundCubit>();
+    playGroundCubit.generateDisplays();
   }
 
   @override
   Widget build(BuildContext context) {
-    //---------- generate displays ------------
     final playGroundCubit = context.read<PlayGroundCubit>();
-    playGroundCubit.generateDisplays();
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
@@ -66,8 +82,7 @@ class PlayGroundPage  extends StatelessWidget {
             onPressed: () {
               final playGroundCubit = context.read<PlayGroundCubit>();
               // Define custom back action
-              context.read<PlayGroundCubit>().clear();
-              context.read<PlayGroundCubit>().close();
+              playGroundCubit.clear();
               Navigator.of(context).pop();
 
             },
@@ -164,7 +179,6 @@ class PlayGroundPage  extends StatelessWidget {
       ],
     );
   }
-
 }
 
 
