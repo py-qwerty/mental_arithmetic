@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mental_arithmetic/app/playground/view/config/config_page.dart';
+import 'package:mental_arithmetic/app/playground/view/end_page.dart';
 import 'package:mental_arithmetic/app/playground/view/play_ground_page.dart';
 
 
@@ -10,7 +11,6 @@ abstract class AppRouter {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-
       case HomePage.route:
         return MaterialPageRoute<void>(
           settings: settings,
@@ -22,7 +22,7 @@ abstract class AppRouter {
           return MaterialPageRoute<void>(
             settings: settings,
             builder: (_) =>  PlayGroundPage.create(
-              playGroundState: args['playGroundState'],
+              cubit: args['cubit'],
             ),
           );
 
@@ -30,10 +30,16 @@ abstract class AppRouter {
           final args = settings.arguments! as Map;
           return MaterialPageRoute<void>(
             settings: settings,
-            builder: (_) =>  ConfigPage(
+            builder: (_) =>  ConfigPage.create(
               operationMode: args['playMode'],
             ),
           );
+
+          case EndPage.route:
+            return MaterialPageRoute<void>(
+              settings: settings,
+              builder: (_) => const EndPage(),
+            );
 
 
       default:

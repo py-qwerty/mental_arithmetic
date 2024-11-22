@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mental_arithmetic/app/playground/widgets/numericKeyPad/cubit/numerickeypad_state.dart';
 import '../../../theme/colors.dart';
 import 'cubit/numerickeypad_cubit.dart';
@@ -81,7 +80,7 @@ class NumericKeyPad extends StatelessWidget {
             child: Center(
               child: Text(
                 key,
-                style: GoogleFonts.indieFlower(
+                style: const TextStyle(
                     fontSize: 34,
                   fontWeight: FontWeight.bold,
 

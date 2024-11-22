@@ -44,5 +44,29 @@ class AppIcons {
       colorFilter: const ColorFilter.mode(AppColors.backgroundColor, BlendMode.srcIn,),
       width: 40,
   );
+  static SvgPicture withSound =  SvgPicture.asset(
+    'assets/icons/sound_min.svg',
+    semanticsLabel: 'Arithmetic Icon',
+    colorFilter: const ColorFilter.mode(AppColors.detailsColor, BlendMode.srcIn,),
+    width: 40,
+  );
+  static SvgPicture withoutSound =  SvgPicture.asset(
+    'assets/icons/sound_mute.svg',
+    semanticsLabel: 'Arithmetic Icon',
+    colorFilter: const ColorFilter.mode(AppColors.detailsColor, BlendMode.srcIn,),
+    width: 40,
+  );
+  static SvgPicture arrowRight =  SvgPicture.asset(
+    'assets/icons/arrow-right.svg',
+    semanticsLabel: 'Arithmetic Icon',
+    colorFilter: const ColorFilter.mode(AppColors.detailsColor, BlendMode.srcIn,),
+    width: 40,
+  );
+  static SvgPicture arrowLeft =  SvgPicture.asset(
+    'assets/icons/arrow-left.svg',
+    semanticsLabel: 'Arithmetic Icon',
+    colorFilter: const ColorFilter.mode(AppColors.detailsColor, BlendMode.srcIn,),
+    width: 40,
+  );
 // Add more icons as needed
 }

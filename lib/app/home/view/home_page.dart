@@ -41,6 +41,7 @@ class HomePage extends StatelessWidget {
 
   Widget _additionalPlay(BuildContext context) {
     return BlockWidget(
+
       onTap: () {
         Navigator.pushNamed(context, ConfigPage.route,
             arguments: {

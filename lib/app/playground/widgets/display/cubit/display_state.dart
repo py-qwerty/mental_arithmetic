@@ -8,6 +8,7 @@ enum answerMode{
   correct,
   wrong,
   none,
+  white,
 }
 
 @freezed

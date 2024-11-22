@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 // Definición de las constantes basadas en potencias de 2
-const double fontSizeH0 = 64;   // Mitad de 100.sp
-const double fontSizeH1 = 32;   // Mitad de 60.sp
-const double fontSizeH2 = 20;   // Mitad de 40.sp
-const double fontSizeH3 = 16;   // Mitad de 32.sp (no cambia porque ya es
+const double fontSizeH0 = 120;   // Mitad de 100.sp
+const double fontSizeH1 = 64;   // Mitad de 60.sp
+const double fontSizeH2 = 32;   // Mitad de 40.sp
+const double fontSizeH3 = 22;   // Mitad de 32.sp (no cambia porque ya es
 // potencia de 2)
-const double fontSizeH4 = 14;    // Mitad de 20.sp
+const double fontSizeH4 = 16;    // Mitad de 20.sp
 const double fontSizeH5 = 12;    // Mitad de 16.sp (no cambia porque ya es
 // potencia de 2)
 
@@ -51,7 +51,7 @@ class BaseText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.indieFlower(
+      style: TextStyle(
         fontSize: fontSize,
         fontWeight: bold ? FontWeight.bold : FontWeight.normal,
         color: color,
